@@ -66,27 +66,20 @@ namespace Amazon
 
         public static string GetConfig(string name)
         {
-            NameValueCollection appConfig = ConfigurationManager.AppSettings;
-            if (appConfig == null)
-                return null;
-            string value = appConfig[name];
-            return value;
+            return null;
         }
 
         internal static T GetSection<T>(string sectionName)
             where T : class, new()
         {
-            object section = ConfigurationManager.GetSection(sectionName);
-            if (section == null)
+            
                 return new T();
-            return section as T;
+            
         }
 
         internal static bool XmlSectionExists(string sectionName)
         {
-            var section = ConfigurationManager.GetSection(sectionName);
-            var element = section as System.Xml.XmlElement;
-            return (element != null);
+            return false;
         }
 
         #endregion
