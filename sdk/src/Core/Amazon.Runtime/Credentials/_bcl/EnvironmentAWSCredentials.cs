@@ -15,7 +15,6 @@
 using Amazon.Runtime.Internal.Util;
 using System;
 using System.Collections.Specialized;
-using System.Configuration;
 
 namespace Amazon.Runtime
 {

@@ -61,24 +61,7 @@ namespace Amazon.Util.Internal
             UseSdkCache = AWSConfigs._useSdkCache;
             CorrectForClockSkew = true;
 
-#if !NETSTANDARD
-            var root = AWSConfigs.GetSection<AWSSection>(_rootAwsSectionName);
 
-            Logging.Configure(root.Logging);
-            Proxy.Configure(root.Proxy);
-            CSMConfig.Configure(root.CSMConfig);
-            ServiceSections = root.ServiceSections;
-            if (root.UseSdkCache.HasValue)
-                UseSdkCache = root.UseSdkCache.Value;
-
-            EndpointDefinition = Choose(EndpointDefinition, root.EndpointDefinition);
-            Region = Choose(Region, root.Region);
-            ProfileName = Choose(ProfileName, root.ProfileName);
-            ProfilesLocation = Choose(ProfilesLocation, root.ProfilesLocation);
-            ApplicationName = Choose(ApplicationName, root.ApplicationName);
-            if (root.CorrectForClockSkew.HasValue)
-                CorrectForClockSkew = root.CorrectForClockSkew.Value;
-#endif
         }
 
         // If a is not null-or-empty, returns a; otherwise, returns b.
